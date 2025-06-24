@@ -1,0 +1,6 @@
+@Dynamic_TimeTable_Generator_HostAddress = http://localhost:5237
+
+GET {{Dynamic_TimeTable_Generator_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

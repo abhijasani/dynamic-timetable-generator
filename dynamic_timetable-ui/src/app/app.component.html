@@ -1,0 +1,45 @@
+<div class="container" *ngIf="step === 1">
+  <h2>Step 1: Configuration</h2>
+  <form [formGroup]="configForm" (ngSubmit)="onNext()" class="card">
+    <label>Working Days:
+      <input type="number" formControlName="workingDays" min="1" max="7" required>
+    </label>
+    <label>Subjects Per Day:
+      <input type="number" formControlName="subjectsPerDay" min="1" max="8" required>
+    </label>
+    <label>Total Subjects:
+      <input type="number" formControlName="totalSubjects" required>
+    </label>
+
+    <p><strong>Total Hours:</strong> {{ totalHours }}</p>
+
+    <button type="submit" [disabled]="!configForm.valid">Next</button>
+  </form>
+</div>
+
+<div class="container" *ngIf="step === 2">
+  <h2>Step 2: Enter Subject Hours</h2>
+  <h4>Total hours to allocate: {{ totalHours }}</h4>
+  <form [formGroup]="subjectsForm" (ngSubmit)="onGenerate()" class="card">
+    <div formArrayName="subjects">
+      <div *ngFor="let subject of subjectArray.controls; let i = index" [formGroupName]="i" class="row">
+        <label>Subject Name:
+          <input type="text" formControlName="name" required>
+        </label>
+        <label>Hours:
+          <input type="number" formControlName="hours" required>
+        </label>
+      </div>
+    </div>
+    <button type="submit">Generate</button>
+  </form>
+</div>
+
+<div class="container" *ngIf="step === 3">
+  <h2>Generated Timetable</h2>
+  <table class="timetable">
+    <tr *ngFor="let row of timetable">
+      <td *ngFor="let cell of row">{{ cell }}</td>
+    </tr>
+  </table>
+</div>

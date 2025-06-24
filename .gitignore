@@ -1,0 +1,47 @@
+# === .NET Ignore ===
+**/bin/
+**/obj/
+**/.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.log
+
+# ASP.NET generated files
+*.dbmdl
+*.jfm
+*.pdb
+
+# Publish folder
+publish/
+
+# secrets
+secrets.json
+
+# === Angular Ignore ===
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+
+# IDEs / Editors
+.vscode/
+.idea/
+*.swp
+
+# OS / General
+.DS_Store
+Thumbs.db
+
+# npm log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.local
+.env.*.local
